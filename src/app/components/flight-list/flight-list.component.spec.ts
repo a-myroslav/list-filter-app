@@ -5,6 +5,9 @@ import {FlightListComponent} from './flight-list.component';
 import {FlightService} from '../../services/flight.service';
 import {HttpModule, Http, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
+import {MaterialModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
+import {FilterAllPipe} from '../../helpers/filter.pipe';
 
 describe('FlightListComponent', () => {
     let component: FlightListComponent;
@@ -13,14 +16,21 @@ describe('FlightListComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [FlightListComponent],
-            providers: [FlightService, {
-                provide: Http,
-                useFactory: (mockBackend, options) => {
-                    return new Http(mockBackend, options);
+            declarations: [FlightListComponent, FilterAllPipe],
+            imports: [
+                MaterialModule,
+                FormsModule,
+                MaterialModule.forRoot()
+            ],
+            providers: [
+                FlightService,
+                {
+                    provide: Http,
+                    useFactory: (mockBackend, options) => {
+                        return new Http(mockBackend, options);
+                    },
+                    deps: [MockBackend, BaseRequestOptions]
                 },
-                deps: [MockBackend, BaseRequestOptions]
-            },
                 MockBackend,
                 BaseRequestOptions]
         })
@@ -40,5 +50,6 @@ describe('FlightListComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
 });
 

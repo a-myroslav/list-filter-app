@@ -1,0 +1,11 @@
+:host{
+	display: block;
+}
+:host-context{
+	text-align: center;
+	h2{
+		font-size: 300%;
+		margin: 3em 0;
+	}
+}
+

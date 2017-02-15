@@ -1,3 +1,25 @@
-<p>
-  flight-list works!
-</p>
+<div class="flight-filter">
+    <md-select placeholder="Carrier" [(ngModel)]="currentCarrier" name="food">
+        <md-option *ngFor="let carrier of carrierList" [value]="carrier.value">
+            {{carrier.viewValue}}
+        </md-option>
+    </md-select>
+</div>
+
+<div class="flight-list">
+    <div class="flight-list__col" *ngFor="let flight of (flightsData | filterAll : 'carrier' : currentCarrier)">
+        <div class="flight-list__item">
+            <div class="flight-list__head">
+                <h2>{{flight.carrier}}</h2>
+            </div>
+            <div class="flight-list__content">
+                <p class="flight-list__line">
+                    From: {{flight.direction.from}} at {{flight.departure | date : 'dd-MM-y hh:mm a'}}
+                </p>
+                <p class="flight-list__line">
+                    To: {{flight.direction.to}} at {{flight.arrival | date : 'dd-MM-y hh:mm a'}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

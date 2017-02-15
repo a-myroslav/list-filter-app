@@ -1,0 +1,13 @@
+:host {
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 40px 10px;
+	display: block;
+}
+:host-context{
+	h1{
+		text-align: center;
+		font-size: 2em;
+		margin: .4em 0;
+	}
+}
