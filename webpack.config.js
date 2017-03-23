@@ -14,6 +14,7 @@ const nodeModules = path.join(process.cwd(), 'node_modules');
 const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"];
 const baseHref = "";
 const deployUrl = "";
+const outputDir = process.env.outputDir || "dist";
 
 
 module.exports = {
@@ -44,7 +45,7 @@ module.exports = {
         ]
     },
     "output": {
-        "path": path.join(process.cwd(), "dist"),
+        "path": path.join(process.cwd(), outputDir),
         "filename": "[name].bundle.js",
         "chunkFilename": "[id].chunk.js"
     },
