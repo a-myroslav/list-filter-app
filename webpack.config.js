@@ -14,8 +14,7 @@ const nodeModules = path.join(process.cwd(), 'node_modules');
 const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "main"];
 const baseHref = "";
 const deployUrl = "";
-const outputDir = process.env.outputDir || "dist";
-
+const outputDir = process.env.npm_config_outputDir || "dist";
 
 module.exports = {
     "devtool": "source-map",
