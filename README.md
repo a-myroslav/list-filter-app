@@ -1,4 +1,4 @@
-# UniSender
+# UniSender [![Build Status](https://travis-ci.org/a-myroslav/list-filter-app.svg?branch=master)](https://travis-ci.org/a-myroslav/list-filter-app)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.31.
 You should have Angular CLI installed globally. Run `npm install -g @angular/cli`
