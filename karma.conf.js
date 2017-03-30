@@ -1,7 +1,7 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/0.13/config/configuration-file.html
 
-// const isTravis = process.env.TRAVIS || false;
+const isTravis = process.env.TRAVIS || false;
 
 module.exports = function (config) {
     config.set({
@@ -37,13 +37,13 @@ module.exports = function (config) {
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: true,
-        // customLaunchers: {
-        //     Chrome_travis_ci: {
-        //         base: 'Chrome',
-        //         flags: ['--no-sandbox']
-        //     }
-        // },
-        browsers: ['Chrome'],//[isTravis ? 'Chrome_travis_ci' : 'Chrome'],
+        customLaunchers: {
+            Chrome_travis_ci: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
+        browsers: [isTravis ? 'Chrome_travis_ci' : 'Chrome'],
         singleRun: false
     });
 };
