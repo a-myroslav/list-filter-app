@@ -10,6 +10,5 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - npm run build
   - npm run test
   - npm run lint
