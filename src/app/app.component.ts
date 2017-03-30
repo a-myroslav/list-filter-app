@@ -7,4 +7,5 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
     public title = 'UniSender app!';
+    public subTitle = 'Why?';
 }
