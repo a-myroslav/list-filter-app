@@ -36,7 +36,7 @@ module.exports = function (config) {
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
-        autoWatch: true,
+        autoWatch: !isTravis,
         customLaunchers: {
             Chrome_travis_ci: {
                 base: 'Chrome',
@@ -44,6 +44,6 @@ module.exports = function (config) {
             }
         },
         browsers: [isTravis ? 'Chrome_travis_ci' : 'Chrome'],
-        singleRun: false
+        singleRun: isTravis
     });
 };
